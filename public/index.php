@@ -3,6 +3,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use \Alura\Cursos\Controller\ListarCursos;
+use \Alura\Cursos\Controller\FormularioInsercao;
 
 switch ($_SERVER['PATH_INFO']) {
     case '/listar-curso':
@@ -10,7 +11,8 @@ switch ($_SERVER['PATH_INFO']) {
         $controlador->processaRequisicao();
         break;
     case '/novo-curso':
-        require 'formulario-novo-curso.php';
+        $controlador = new FormularioInsercao();
+        $controlador->processaRequisicao();
         break;
     default:
         echo "Erro 404";
